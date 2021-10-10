@@ -7,9 +7,9 @@ exports.register = (req, res) => {
     const customerUser = User(
         req.body
     );
-    customerUser.save().then(() => {        
-          var token = jwt.encode(customerUser, config.secret);
-          res.send({ success: true, msg: token })
+    customerUser.save().then(() => {
+        var token = jwt.encode(customerUser, config.secret);
+        res.send({ success: true, msg: token })
     }).catch((err) => {
         res.send({ success: false, msg: err });
     });
@@ -37,7 +37,7 @@ exports.login = (req, res) => {
                             msg: token,
                         })
                     })
-                
+
                 }
                 else {
                     res.status(404).send({ success: false, msg: "Invalid details" })

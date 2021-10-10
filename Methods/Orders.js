@@ -28,37 +28,37 @@ exports.getOrderDetails = (req, res) => {
 }
 exports.deleteOrder = (req, res) => {
     CustomerOrder.findOneAndUpdate(
-        {id:req.params.id},{new:true},
-        {status:"canceled"},(err,result)=>{
-            if(err)
-            res.send(err)
+        { id: req.params.id }, { new: true },
+        { status: "canceled" }, (err, result) => {
+            if (err)
+                res.send(err)
             else
-            res.send(result)
+                res.send(result)
         }
     );
 }
 exports.orderStatus = (req, res) => {
     CustomerOrder.findOneAndUpdate(
-        {_id:req.params.id},
-        {$set:{status:req.body.status}},{new:true},(err,result)=>{
-               
-            if(err)
-            res.send(err)
+        { _id: req.params.id },
+        { $set: { status: req.body.status } }, { new: true }, (err, result) => {
+
+            if (err)
+                res.send(err)
             else
-            res.send(result)
+                res.send(result)
         }
     );
 }
-exports.getRestaurantOrderDetails=(req,res)=>{
-    CustomerOrder.find({restaurantMobileNumber:req.params.restaurantMobileNumber},(err,result)=>{
-        if(err)
-        return res.send({
-            success:false,
-            msg:err        
-        })
+exports.getRestaurantOrderDetails = (req, res) => {
+    CustomerOrder.find({ restaurantMobileNumber: req.params.restaurantMobileNumber }, (err, result) => {
+        if (err)
+            return res.send({
+                success: false,
+                msg: err
+            })
         else
-        return res.send({
-            result
-        })
+            return res.send({
+                result
+            })
     })
 }

@@ -4,16 +4,16 @@ const bcrypt = require('bcrypt')
 const customerUserSchema = new Schema({
     mobileNumber: {
         type: String,
-        unique: true,         
+        unique: true,
     },
     password: {
-        type: String,         
+        type: String,
     },
-    email:{
-        type:String,
+    email: {
+        type: String,
     },
-    name:{
-        type:String,
+    name: {
+        type: String,
     }
 }, {
     timestamps: true,
